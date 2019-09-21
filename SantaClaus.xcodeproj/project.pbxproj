@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		412C7A112336D544001B458D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 412C7A102336D544001B458D /* main.cpp */; };
+		412C7A192336D649001B458D /* libomp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 412C7A182336D649001B458D /* libomp.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,11 @@
 /* Begin PBXFileReference section */
 		412C7A0D2336D544001B458D /* SantaClaus */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SantaClaus; sourceTree = BUILT_PRODUCTS_DIR; };
 		412C7A102336D544001B458D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		412C7A182336D649001B458D /* libomp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libomp.dylib; path = ../../../../usr/local/Cellar/llvm/8.0.1/lib/libomp.dylib; sourceTree = "<group>"; };
+		412C7A1A2336D84E001B458D /* Santa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Santa.h; sourceTree = "<group>"; };
+		412C7A1C2336D8B0001B458D /* Aleatorizador.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Aleatorizador.h; path = ../../../Downloads/barberia/Aleatorizador.h; sourceTree = "<group>"; };
+		412C7A1D2336D923001B458D /* Elfos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Elfos.h; sourceTree = "<group>"; };
+		412C7A1E2336DC8B001B458D /* Renos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renos.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				412C7A192336D649001B458D /* libomp.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +50,7 @@
 			children = (
 				412C7A0F2336D544001B458D /* SantaClaus */,
 				412C7A0E2336D544001B458D /* Products */,
+				412C7A172336D649001B458D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +65,21 @@
 		412C7A0F2336D544001B458D /* SantaClaus */ = {
 			isa = PBXGroup;
 			children = (
+				412C7A1C2336D8B0001B458D /* Aleatorizador.h */,
 				412C7A102336D544001B458D /* main.cpp */,
+				412C7A1A2336D84E001B458D /* Santa.h */,
+				412C7A1D2336D923001B458D /* Elfos.h */,
+				412C7A1E2336DC8B001B458D /* Renos.h */,
 			);
 			path = SantaClaus;
+			sourceTree = "<group>";
+		};
+		412C7A172336D649001B458D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				412C7A182336D649001B458D /* libomp.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +259,16 @@
 		412C7A152336D544001B458D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				HEADER_SEARCH_PATHS = /usr/local/opt/llvm/lib/clang/4.0.1/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/opt/llvm/lib,
+					/usr/local/Cellar/llvm/8.0.1/lib,
+				);
+				OTHER_CFLAGS = "-fopenmp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -247,7 +276,16 @@
 		412C7A162336D544001B458D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				HEADER_SEARCH_PATHS = /usr/local/opt/llvm/lib/clang/4.0.1/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/opt/llvm/lib,
+					/usr/local/Cellar/llvm/8.0.1/lib,
+				);
+				OTHER_CFLAGS = "-fopenmp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
